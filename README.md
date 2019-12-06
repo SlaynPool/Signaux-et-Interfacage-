@@ -96,10 +96,84 @@ Proprieté statistiques plus complexes
 Soit un signal s(t)
 Il peut être à amplitude continue et de temps continu (Cas d'un signal analogique) 
 
-A contrario : Les signaux numeriques peuvent à amplitude discrète et temps continu 
+A contrario : amplitude discrète et temps continu 
+
+
+Ou amplitude continu mais temps discret 
+On releve tous les x temps la valeur du phenoméme
+C'est le principe de l'echantillonnage 
+
+
+SI on combine les deux : on obtient un signal analogique 
+On discretise l'amplitude et le temps.
+
+# Les signaux usuels 
+a) Les signal sinusoïdal
+s(t) = Smax cos(wt + p) = Smax racine(2) cos (wt + p)
+
+Son amplitiude du signal Smax 
+s est sa valeur efficace s= Smax/ racine (2) 
+
+T la periode en seconde f la frequence en Hz 
+w la pulsation (en rad/s)
+w= 2pi F= 2pi/T
+
+P phi : Phase initial (en rad )
+
+ SI ce signal est échantilloné à la fréquence Fe, quelle est l'expressions de ses echantillons ? On supposera que le premier a lieu à l'instant t=0
+s(t ) Ŝ cos a(wt+w )
+s(t=0)= Ŝ cos (phi)
+s(nTe) =Ŝ cos (wnTe+phi)
+Té=1/Fe 
+
+-> s(nTe) =5cos (2pi x (500/8000)n=0?1)
+-> s(nTe = 5cos (0,39 n +0,1)
+T=1/f = 0,002s
 
 
 
+## Le signale échelon unité u(t)
+
+definie par s(t) = Eu(t)
+
+## les Impulsions 
+
+Amplitude A, durée 1/A 
+de sorte que intergale entre -infini et + infini (sa(t) =1
 
 
+## le signal impulsions de Dirac 
+ 
+ Amplitude 1, temps = NULL 
+ mais la magie =  intergale entre -infini et + infini (sa(t) )=1
+# Le signal rampe 
+ +
+|       /
+|      /
+|     /
+|    /
+|   /
+|  /
+| /
+|/
++-------+
+r(t) = a.t.u(t)
 
+
+# la notion de Rapport signal signal sur bruit
+definie par : Rs/b = 10.log10(Ps/Pb) en DB 
+
+# Puissance d'un signal :
+
+Pour un signal s(t) quelconque, on definit sa puissance moyenne :
+
+Ps =1/(t2-t1) integrale t1 -> t2 (t) dt 
+
+Qui devine , dans le cas d'un signal périodique : Ps=1.Tintergale d'une periode (s²(t)dt )
+
+C'est donc la valeur efficase au carré, S² 
+
+ 
+ 
+ 
+  
