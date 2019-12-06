@@ -36,15 +36,45 @@ Des sin() ou le DTMF (Somme de sin())
 ### On peut classifier plusieurs signaux déterministe 
 #### Les signaux périodiques 
 Ils ont des propriétés très simples
+
+
+Et décris par 3 grandeurs :
+La periode : ce mesure en temps 
+Sa frequence : En hertz  f= 1/T 
+Sa valeur moyenne : S0 = < s(t) > = 1/T Intergale ( s(t) dt )
+Sa valeur Efficace 
+s= Seff = Racine (s²(t) )= racine( (1/T) Integrale( s² (t) dt)
+
+
+
+
 #### Non periodique
 Proprieté plus complexe 
 
+Meme grandeurs que precedament 
 
+Maleur moyenne, valeur efficace : Définies sur une durée limitée 
+
+s(t)= 1/(t2-t1) integrale entre t1 et t2 (s(t) dt 
+
+s=Seff = racine (s²(t))= racine (1/(t2-t1) integrale entre t1 et t2 (s(t)² dt )
+
+ 
 
 
 ##Les signaux Random
 Ce sont des signaux dont on ne peut pas connaître les valeurs avant de les avoir observés : Il sont imprévisibles.
 La courbe d'évolution du signal au cours du temps ne peut être tracée qu'après coups.
+
+Valeur moyenne -> esperance mathématique 
+Valeur efficase -> Moment d'ordre 2 
+Spectre en fréquence -> Densité spectrale de puissance
+Si le signal est stationnaire, ces grandeurs sont invariantes dans le temps 
+
+
+
+
+
 ### Exemple 
 La voix 
 Ou suite de bit par exemple
@@ -57,6 +87,17 @@ Comme un dé par exemple
 
 #### Non stationnaire 
 Proprieté statistiques plus complexes
+
+
+
+
+# Signaux Analogique / numériques 
+
+Soit un signal s(t)
+Il peut être à amplitude continue et de temps continu (Cas d'un signal analogique) 
+
+A contrario : Les signaux numeriques peuvent à amplitude discrète et temps continu 
+
 
 
 
