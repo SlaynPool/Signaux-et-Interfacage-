@@ -53,6 +53,80 @@ tabsize=2
 
 \url{https://github.com/SlaynPool/TP1_SIGNAUX_ET_INTERFACAGE/}
 \section{Mise en oeuvre de la carte Arduino}
+Pour cette partie, j'ai realiser le montage prévu dans le tp :
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.20]{screen/1.jpg}
+\caption{Montage}
+\label{fig:net }
+\end{figure}
+Le fils rouge est connecté sur le PIN 13 de mon ESP, et le fils vert sur le GND.
+Voici donc le code 
+\insertcode{code/blink.txt}{Code 1}
+Ma led Clignotte correctement.\newpage
+\section{Analyse du convertiseur CAN}
+\subsection{Détérminer l'expression de V1, puis celle de la tension Vi dans le cas général.}
+Nous avons :\\
+R= 330 Ohms\\
+U= 3.3 V\\
+V1= (330/(5*330))*3.3=0.66V\\
+L'expresion de Vi est donc:
+Vi: (R/(iR)*330
+\subsection{mise en place du montage}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.10]{screen/2.jpg}
+\caption{Montage}
+\label{fig:net }
+\end{figure}
+\subsection{Tension mesuré}
+\begin{tabular}{|l|l|l|}
+\hline
+    Resistance & Valeurs Theorique (V) & Valeurs Mesures (V)\\ \hline
+    1 & 0,66 & 0,657\\ \hline
+    2 & 0,82 & 1,31\\ \hline
+    3 & 1,1 & 1,97\\ \hline
+    4 & 1,65 & 2,64\\ \hline
+    5 & 3,3 & 3,31\\ \hline
+    
+\hline
+\end{tabular}
+\subsection{AnalogReadSerial}
+On branche donc un fils sur le port noté VP de notre stm32. On modifie notre vitesse pour le port serie. Voici le resultat de mon moniteur Serie si je branche mon fils après la dernier resistance :
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.50]{screen/3.jpg}
+\caption{Moniteur Serie}
+\label{fig:net }
+\end{figure}
+
+La ligne ``int sensorValue = AnalogRead(A0);'' sert à lire une tension sur un pin, ici le pin A0, puis la convertir en une valeur numerique à l'aide d'un CAN.
+La fonction AnalogRead() renvoi donc un entier qui sera donc disponible dans la variable sensorValue.
+\subsection{Resolution, plage de conversion, et pas de quantification}
+valeur de N0= 0\\
+valeur de N5 = 4095\\
+On peut donc en déduire la Resolution du Convertiseur :\\
+3.3/4095 = 0.000805, cela signifie que pour chaques n*0.000805 V une valeurs numerique est associée \\
+
+La plage de conversion est donc de 0 à 4095 \\
+\subsection{Pour l'ESP32, A0 est une entrée ou une sortie}
+Pour l'ESP32, A0 est une entrée dans le sens qu'il lit des valeurs sur le pin
+
+\subsection{Effectuer la lecture de N1}
+On lit des valeurs entre 1468 et 1472 donc on a un ecart de 4 valeurs, et une Vmoyen de 1470. Si on converti cette valeur en Volt, on obtient donc 1470*0,000805= 1,183 V\\
+\subsection{Effectuer toutes les lectures}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+    Resistance & Valeurs Theorique (V) & Valeurs Mesures (V) & Ecart & Moyenne & V mesuré CAN \\ \hline
+    1 & 0,66 & 0,657 & 4 & 632 & 0,50876 \\ \hline
+    2 & 0,82 & 1,31 & 4 & 1470 & 1,183\\ \hline
+    3 & 1,1 & 1,97 & 4 & 2305 & 1,855\\ \hline
+    4 & 1,65 & 2,64 & 4 & 3169 &  2,551\\ \hline
+    5 & 3,3 & 3,31 & 0 & 4095  &  3,296\\ \hline
+    
+\hline
+\end{tabular}
+
 
 
 \end{document}
