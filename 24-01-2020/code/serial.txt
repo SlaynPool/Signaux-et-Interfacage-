@@ -1,0 +1,23 @@
+Angle : 16
+sensor = 0.15
+Angle : 16
+sensor = 0.15
+Angle : 16
+sensor = 0.15
+Angle : 16
+-----
+sensor = 1.50
+Angle : 163
+sensor = 1.50
+Angle : 163
+sensor = 1.50
+Angle : 163
+-------
+sensor = 2.51
+Angle : 273
+sensor = 2.52
+Angle : 274
+sensor = 2.52
+Angle : 274
+
+
